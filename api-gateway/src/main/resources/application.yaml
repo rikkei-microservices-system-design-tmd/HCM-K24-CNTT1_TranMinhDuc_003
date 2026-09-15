@@ -9,20 +9,20 @@ spring:
             - id: category-service
               uri: lb://category-service
               predicates:
-                - Path=/api/categories/**
+                - Path=/api/categories, /api/categories/**
             - id: medicine-service
               uri: lb://medicine-service
               predicates:
-                - Path=/api/medicines/**
+                - Path=/api/medicines, /api/medicines/**
       routes:
         - id: category-service
           uri: lb://category-service
           predicates:
-            - Path=/api/categories/**
+            - Path=/api/categories, /api/categories/**
         - id: medicine-service
           uri: lb://medicine-service
           predicates:
-            - Path=/api/medicines/**
+            - Path=/api/medicines, /api/medicines/**
 
 server:
   port: 8080

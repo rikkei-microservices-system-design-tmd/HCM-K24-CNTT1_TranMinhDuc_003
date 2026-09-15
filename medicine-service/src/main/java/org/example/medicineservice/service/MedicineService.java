@@ -35,8 +35,8 @@ public class MedicineService {
             }
         } catch (FeignException.NotFound e) {
             throw new CategoryNotFoundException("Category not found with id: " + request.getCategoryId());
-        } catch (FeignException e) {
-            throw new CategoryNotFoundException("Error validating category with id: " + request.getCategoryId());
+        } catch (Exception e) {
+            throw new CategoryNotFoundException("Category not found with id: " + request.getCategoryId());
         }
 
         Medicine medicine = Medicine.builder()

@@ -18,9 +18,9 @@ public class ApiGatewayApplication {
     @Bean
     public RouteLocator routes(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("category-service", r -> r.path("/api/categories/**")
+                .route("category-service", r -> r.path("/api/categories", "/api/categories/**")
                         .uri("lb://category-service"))
-                .route("medicine-service", r -> r.path("/api/medicines/**")
+                .route("medicine-service", r -> r.path("/api/medicines", "/api/medicines/**")
                         .uri("lb://medicine-service"))
                 .build();
     }
